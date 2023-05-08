@@ -3,7 +3,7 @@ from . import nft_collection
 from thirdweb.types.nft import NFTMetadataInput 
 from io import BytesIO
 
-def home(request):
+def listingNFT(request):
     if request.method == 'POST' and request.FILES['home']:
         name_nft = request.POST.get('name','')
         description_nft = request.POST.get('description','')

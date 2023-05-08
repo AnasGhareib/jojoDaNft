@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'thirdweb_nft',
+    'thirdwebNft.apps.ThirdwebNftConfig',
+    'center.apps.CenterConfig',
 ]
 
 MIDDLEWARE = [

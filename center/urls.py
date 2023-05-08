@@ -2,10 +2,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+
+from center.views import index
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("success", views.success, name="success"),
+    path("home/", index, name='home'),
+    path('admin/', admin.site.urls),
    
 ]
