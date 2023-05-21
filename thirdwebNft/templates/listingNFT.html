@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Mint NFTs{% endblock %}
+
+{% block script%}
+function preview_image(event) {
+  var reader = new FileReader();
+  reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+      <!--Simple Form-->
+      <div class="card">
+        <p class="cardtitle">🔨 Mint a new NFT </p>
+        <img class="preview" id="output_image">
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="inputbox">
+          <input type="text" id="name" name="name" value="NFT name">
+        </div>
+        <div class="inputbox">
+          <input type="text" id="description" name="description" value="NFT description">
+        </div>
+        <div class="inputbox">
+          <input type="file" name="mint" id="mint" multiple class="form-control-file" accept="image/*" onchange="preview_image(event)">
+        </div>
+        <div class="">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+  </div>
+{% endblock %}
+
+
+
